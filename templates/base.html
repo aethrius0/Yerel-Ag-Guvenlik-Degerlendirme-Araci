@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeNetGuard 🛡️</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">🛡️ HomeNetGuard</div>
+        <div class="nav-links">
+            <a href="/" class="{{ 'active' if request.endpoint == 'index' }}">🔍 Yeni Tarama</a>
+            <a href="/dashboard" class="{{ 'active' if request.endpoint == 'dashboard' }}">📊 Dashboard</a>
+            <a href="/history" class="{{ 'active' if request.endpoint == 'history' }}">📜 Geçmiş</a>
+        </div>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

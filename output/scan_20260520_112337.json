@@ -1,0 +1,74 @@
+{
+  "timestamp": "2026-05-20T11:23:37.508173",
+  "devices": [
+    {
+      "ip": "172.20.10.1",
+      "mac": "3e:3b:77:a3:7d:64",
+      "vendor": "Bilinmiyor",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.20.10.2",
+      "mac": "70:9c:d1:fc:fa:a8",
+      "vendor": "Intel Corporate",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.20.10.3",
+      "mac": "7e:e9:54:e0:4d:35",
+      "vendor": "Bilinmiyor",
+      "hostname": "-"
+    }
+  ],
+  "scan_results": [
+    {
+      "ip": "172.20.10.1",
+      "status": "up",
+      "ports": [
+        {
+          "port": 21,
+          "protocol": "tcp",
+          "service": "ftp",
+          "product": "",
+          "version": "",
+          "extra": ""
+        },
+        {
+          "port": 53,
+          "protocol": "tcp",
+          "service": "domain",
+          "product": "",
+          "version": "",
+          "extra": "generic dns response: NXDOMAIN"
+        }
+      ],
+      "mac": "3e:3b:77:a3:7d:64",
+      "vendor": "Bilinmiyor",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.20.10.2",
+      "status": "up",
+      "ports": [
+        {
+          "port": 3306,
+          "protocol": "tcp",
+          "service": "mysql",
+          "product": "MySQL",
+          "version": "",
+          "extra": "unauthorized"
+        }
+      ],
+      "mac": "70:9c:d1:fc:fa:a8",
+      "vendor": "Intel Corporate",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.20.10.3",
+      "ports": [],
+      "mac": "7e:e9:54:e0:4d:35",
+      "vendor": "Bilinmiyor",
+      "hostname": "-"
+    }
+  ]
+}

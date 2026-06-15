@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <h1>Tarama Geçmişi</h1>
+    <p class="subtitle">Toplam {{ scans|length }} tarama</p>
+</div>
+
+{% if not scans %}
+<div class="card">
+    <p>Henüz kaydedilmiş tarama yok. <a href="/">Yeni tarama başlat.</a></p>
+</div>
+{% else %}
+{% for scan in scans[:20] %}
+{% set summary = scan.get('summary', {}) %}
+{% set sev = summary.get('severity_counts', {}) %}
+<div class="card history-card">
+    <div class="history-header">
+        <div>
+            <h3>📅 {{ scan.get('timestamp', '')[:19]|replace('T', ' ') }}</h3>
+            <p class="dim">{{ scan.get('network', '-') }} • {{ scan.get('_filename', '') }}</p>
+        </div>
+        <a href="/history/load/{{ loop.index0 }}" class="btn-small">Yükle</a>
+    </div>
+    <div class="metrics-row small">
+        <div class="metric-card">
+            <div class="metric-value">{{ summary.get('total_devices', 0) }}</div>
+            <div class="metric-label">Cihaz</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">{{ summary.get('total_findings', 0) }}</div>
+            <div class="metric-label">Bulgu</div>
+        </div>
+        <div class="metric-card kritik">
+            <div class="metric-value">{{ sev.get('KRITIK', 0) }}</div>
+            <div class="metric-label">Kritik</div>
+        </div>
+        <div class="metric-card yuksek">
+            <div class="metric-value">{{ sev.get('YUKSEK', 0) }}</div>
+            <div class="metric-label">Yüksek</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">{{ summary.get('average_score', 0) }}/100</div>
+            <div class="metric-label">Ort. Skor</div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

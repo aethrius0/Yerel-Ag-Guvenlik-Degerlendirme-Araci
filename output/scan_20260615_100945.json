@@ -1,0 +1,153 @@
+{
+  "timestamp": "2026-06-15T10:09:45.291652",
+  "devices": [
+    {
+      "ip": "172.20.10.1",
+      "mac": "3e:3b:77:a3:7d:64",
+      "vendor": "Bilinmiyor",
+      "hostname": "-",
+      "names": {
+        "http_banner": null,
+        "snmp": null,
+        "upnp": null,
+        "smb": null,
+        "mdns": null,
+        "netbios": null,
+        "reverse_dns": null,
+        "best_name": null
+      },
+      "device_name": "Bilinmiyor"
+    },
+    {
+      "ip": "172.20.10.2",
+      "mac": "70:9c:d1:fc:fa:a8",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "names": {
+        "http_banner": null,
+        "snmp": null,
+        "upnp": null,
+        "smb": "DESKTOP-VMGDL0B (SMB)",
+        "mdns": null,
+        "netbios": "DESKTOP-VMGDL0B (NetBIOS)",
+        "reverse_dns": null,
+        "best_name": "DESKTOP-VMGDL0B (SMB)"
+      },
+      "device_name": "DESKTOP-VMGDL0B (SMB)"
+    }
+  ],
+  "scan_results": [
+    {
+      "ip": "172.20.10.1",
+      "status": "up",
+      "ports": [
+        {
+          "port": 21,
+          "protocol": "tcp",
+          "service": "ftp",
+          "product": "",
+          "version": "",
+          "extra": ""
+        },
+        {
+          "port": 53,
+          "protocol": "tcp",
+          "service": "domain",
+          "product": "",
+          "version": "",
+          "extra": "generic dns response: NXDOMAIN"
+        }
+      ],
+      "mac": "3e:3b:77:a3:7d:64",
+      "vendor": "Bilinmiyor",
+      "hostname": "-",
+      "device_type": "Genel Ag Cihazi",
+      "type_confidence": "Dusuk",
+      "type_reason": "Belirgin imza yok"
+    },
+    {
+      "ip": "172.20.10.2",
+      "status": "up",
+      "ports": [
+        {
+          "port": 3306,
+          "protocol": "tcp",
+          "service": "mysql",
+          "product": "MySQL",
+          "version": "",
+          "extra": "unauthorized"
+        }
+      ],
+      "mac": "70:9c:d1:fc:fa:a8",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "device_type": "Bilgisayar (Laptop/PC)",
+      "type_confidence": "Orta",
+      "type_reason": "Uretici bilgisi + port ipuclari"
+    }
+  ],
+  "security_evaluation": [
+    {
+      "ip": "172.20.10.1",
+      "mac": "3e:3b:77:a3:7d:64",
+      "vendor": "Bilinmiyor",
+      "hostname": "-",
+      "findings": [
+        {
+          "port": 21,
+          "service": "ftp",
+          "product": "",
+          "version": "",
+          "severity": "YUKSEK",
+          "title": "FTP - Sifrelenmemis dosya transferi",
+          "description": "FTP kimlik bilgilerini ve dosyalari duz metin olarak gonderir, dinlenebilir.",
+          "recommendation": "FTP yerine SFTP (port 22) veya FTPS kullanin. Gerekmiyorsa servisi kapatin."
+        },
+        {
+          "port": 53,
+          "service": "domain",
+          "product": "",
+          "version": "",
+          "severity": "DUSUK",
+          "title": "DNS servisi",
+          "description": "Acik DNS resolver, DNS amplification saldirilarinda kullanilabilir.",
+          "recommendation": "Disaridan erisime kapatin, sadece ic agdan sorgulara izin verin."
+        }
+      ],
+      "score": 70,
+      "risk_level": "ORTA"
+    },
+    {
+      "ip": "172.20.10.2",
+      "mac": "70:9c:d1:fc:fa:a8",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "findings": [
+        {
+          "port": 3306,
+          "service": "mysql",
+          "product": "MySQL",
+          "version": "",
+          "severity": "YUKSEK",
+          "title": "MySQL - Veritabani",
+          "description": "MySQL portu aga acik. Veritabanina yetkisiz erisim riski.",
+          "recommendation": "bind-address=127.0.0.1 ayarlayin, guclu root sifresi kullanin."
+        }
+      ],
+      "score": 75,
+      "risk_level": "ORTA"
+    }
+  ],
+  "summary": {
+    "total_devices": 2,
+    "total_findings": 3,
+    "severity_counts": {
+      "KRITIK": 0,
+      "YUKSEK": 2,
+      "ORTA": 0,
+      "DUSUK": 1,
+      "BILGI": 0
+    },
+    "average_score": 72.5
+  }
+}

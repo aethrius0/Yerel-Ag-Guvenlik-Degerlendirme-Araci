@@ -1,0 +1,248 @@
+{
+  "timestamp": "2026-05-20T11:31:51.573347",
+  "devices": [
+    {
+      "ip": "172.16.1.1",
+      "mac": "f4:1e:57:23:b5:3b",
+      "vendor": "Routerboard.com",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.2",
+      "mac": "e4:d5:3d:08:7b:a5",
+      "vendor": "Hon Hai Precision Ind. Co.,Ltd.",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.6",
+      "mac": "1c:2f:a2:99:c6:9a",
+      "vendor": "Guangzhou Shiyuan Electronic Technology Company Limited",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.9",
+      "mac": "e0:5d:54:dc:d2:3a",
+      "vendor": "Ruijie Networks Co.,LTD",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.20",
+      "mac": "a2:1b:b0:58:ff:48",
+      "vendor": "Bilinmiyor",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.50",
+      "mac": "00:45:e2:6f:47:df",
+      "vendor": "CyberTAN Technology Inc.",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.57",
+      "mac": "c2:20:85:48:86:ab",
+      "vendor": "Bilinmiyor",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.59",
+      "mac": "70:9c:d1:fc:fa:a8",
+      "vendor": "Intel Corporate",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.63",
+      "mac": "0c:b5:27:e7:41:c5",
+      "vendor": "HUAWEI TECHNOLOGIES CO.,LTD",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.67",
+      "mac": "f4:3b:d8:d3:7a:93",
+      "vendor": "Intel Corporate",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.70",
+      "mac": "dc:21:48:e7:26:b5",
+      "vendor": "Intel Corporate",
+      "hostname": "-"
+    }
+  ],
+  "scan_results": [
+    {
+      "ip": "172.16.1.1",
+      "status": "up",
+      "ports": [
+        {
+          "port": 53,
+          "protocol": "tcp",
+          "service": "domain",
+          "product": "",
+          "version": "",
+          "extra": "generic dns response: NOTIMP"
+        },
+        {
+          "port": 80,
+          "protocol": "tcp",
+          "service": "http",
+          "product": "",
+          "version": "",
+          "extra": ""
+        },
+        {
+          "port": 443,
+          "protocol": "tcp",
+          "service": "https",
+          "product": "",
+          "version": "",
+          "extra": ""
+        },
+        {
+          "port": 8080,
+          "protocol": "tcp",
+          "service": "http-proxy",
+          "product": "",
+          "version": "",
+          "extra": ""
+        }
+      ],
+      "mac": "f4:1e:57:23:b5:3b",
+      "vendor": "Routerboard.com",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.2",
+      "ports": [],
+      "mac": "e4:d5:3d:08:7b:a5",
+      "vendor": "Hon Hai Precision Ind. Co.,Ltd.",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.6",
+      "status": "up",
+      "ports": [
+        {
+          "port": 8080,
+          "protocol": "tcp",
+          "service": "http-proxy",
+          "product": "Jetty(i-jetty 2.1.2-118+general)",
+          "version": "",
+          "extra": ""
+        }
+      ],
+      "mac": "1c:2f:a2:99:c6:9a",
+      "vendor": "Guangzhou Shiyuan Electronic Technology Company Limited",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.9",
+      "status": "up",
+      "ports": [
+        {
+          "port": 53,
+          "protocol": "tcp",
+          "service": "domain",
+          "product": "Simple DNS Plus",
+          "version": "",
+          "extra": ""
+        },
+        {
+          "port": 80,
+          "protocol": "tcp",
+          "service": "http",
+          "product": "lighttpd",
+          "version": "",
+          "extra": ""
+        },
+        {
+          "port": 443,
+          "protocol": "tcp",
+          "service": "http",
+          "product": "lighttpd",
+          "version": "",
+          "extra": ""
+        },
+        {
+          "port": 1883,
+          "protocol": "tcp",
+          "service": "mqtt",
+          "product": "",
+          "version": "",
+          "extra": ""
+        }
+      ],
+      "mac": "e0:5d:54:dc:d2:3a",
+      "vendor": "Ruijie Networks Co.,LTD",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.20",
+      "ports": [],
+      "mac": "a2:1b:b0:58:ff:48",
+      "vendor": "Bilinmiyor",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.50",
+      "status": "up",
+      "ports": [
+        {
+          "port": 5432,
+          "protocol": "tcp",
+          "service": "postgresql",
+          "product": "PostgreSQL DB",
+          "version": "9.6.0 or later",
+          "extra": ""
+        }
+      ],
+      "mac": "00:45:e2:6f:47:df",
+      "vendor": "CyberTAN Technology Inc.",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.57",
+      "ports": [],
+      "mac": "c2:20:85:48:86:ab",
+      "vendor": "Bilinmiyor",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.59",
+      "status": "up",
+      "ports": [
+        {
+          "port": 3306,
+          "protocol": "tcp",
+          "service": "mysql",
+          "product": "MySQL",
+          "version": "",
+          "extra": "unauthorized"
+        }
+      ],
+      "mac": "70:9c:d1:fc:fa:a8",
+      "vendor": "Intel Corporate",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.63",
+      "ports": [],
+      "mac": "0c:b5:27:e7:41:c5",
+      "vendor": "HUAWEI TECHNOLOGIES CO.,LTD",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.67",
+      "ports": [],
+      "mac": "f4:3b:d8:d3:7a:93",
+      "vendor": "Intel Corporate",
+      "hostname": "-"
+    },
+    {
+      "ip": "172.16.1.70",
+      "ports": [],
+      "mac": "dc:21:48:e7:26:b5",
+      "vendor": "Intel Corporate",
+      "hostname": "-"
+    }
+  ]
+}

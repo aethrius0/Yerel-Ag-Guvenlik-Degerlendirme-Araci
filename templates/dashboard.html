@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <h1>Dashboard</h1>
+    {% if result %}
+    <p class="subtitle">Ağ: {{ result.get('network', '-') }}</p>
+    {% endif %}
+</div>
+
+{% if not result %}
+<div class="card">
+    <p>Henüz tarama yapılmamış. <a href="/">Yeni tarama başlat.</a></p>
+</div>
+{% else %}
+
+{% set summary = result.get('summary', {}) %}
+{% set evaluated = result.get('evaluated', []) %}
+{% set sev = summary.get('severity_counts', {}) %}
+
+<!-- Metrikler -->
+<div class="metrics-row">
+    <div class="metric-card">
+        <div class="metric-value">{{ summary.get('total_devices', 0) }}</div>
+        <div class="metric-label">Toplam Cihaz</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value">{{ summary.get('total_findings', 0) }}</div>
+        <div class="metric-label">Toplam Bulgu</div>
+    </div>
+    <div class="metric-card kritik">
+        <div class="metric-value">{{ sev.get('KRITIK', 0) }}</div>
+        <div class="metric-label">🔴 Kritik</div>
+    </div>
+    <div class="metric-card yuksek">
+        <div class="metric-value">{{ sev.get('YUKSEK', 0) }}</div>
+        <div class="metric-label">🟠 Yüksek</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value">{{ summary.get('average_score', 0) }}/100</div>
+        <div class="metric-label">Ort. Skor</div>
+    </div>
+</div>
+
+<!-- Cihaz Tablosu -->
+<div class="card">
+    <h2>Cihaz Listesi</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>IP</th>
+                <th>Cihaz Adı</th>
+                <th>Üretici</th>
+                <th>Tip</th>
+                <th>Bulgu</th>
+                <th>Skor</th>
+                <th>Risk</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in evaluated %}
+            <tr>
+                <td><code>{{ e.ip }}</code></td>
+                <td>{{ e.get('device_name', 'Bilinmiyor') }}</td>
+                <td>{{ e.get('vendor', '-') }}</td>
+                <td>{{ e.get('device_type', '-') }}</td>
+                <td>{{ e.findings|length }}</td>
+                <td>
+                    <span class="score score-{{ e.risk_level|lower }}">
+                        {{ e.score }}/100
+                    </span>
+                </td>
+                <td>
+                    <span class="badge badge-{{ e.risk_level|lower }}">
+                        {{ e.risk_level }}
+                    </span>
+                </td>
+                <td>
+                    <button class="btn-small" onclick="toggleDetail('detail-{{ loop.index }}')">
+                        Detay
+                    </button>
+                </td>
+            </tr>
+            <tr id="detail-{{ loop.index }}" class="detail-row" style="display:none">
+                <td colspan="8">
+                    <div class="detail-box">
+                        <div class="detail-info">
+                            <span><b>MAC:</b> {{ e.get('mac', '-') }}</span>
+                            <span><b>Hostname:</b> {{ e.get('hostname', '-') }}</span>
+                            <span><b>Cihaz Tipi:</b> {{ e.get('device_type', '-') }}</span>
+                        </div>
+                        {% if e.findings %}
+                        <div class="findings">
+                            {% for f in e.findings %}
+                            <div class="finding finding-{{ f.severity|lower }}">
+                                <div class="finding-header">
+                                    <span class="badge badge-{{ f.severity|lower }}">{{ f.severity }}</span>
+                                    <b>Port {{ f.port }}</b> — {{ f.title }}
+                                </div>
+                                <p>{{ f.description }}</p>
+                                <div class="finding-rec">💡 {{ f.recommendation }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <p class="success-text">✅ Bu cihazda önemli bir güvenlik bulgusu yok.</p>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,259 @@
+{
+  "timestamp": "2026-06-05T13:30:40.788633",
+  "devices": [
+    {
+      "ip": "10.102.143.1",
+      "mac": "00:01:21:76:3c:ad",
+      "vendor": "WatchGuard Technologies, Inc.",
+      "hostname": "-",
+      "names": {
+        "reverse_dns": null,
+        "netbios": null,
+        "mdns": null,
+        "best_name": null
+      },
+      "device_name": "Bilinmiyor"
+    },
+    {
+      "ip": "10.102.143.133",
+      "mac": "f0:9e:4a:6a:51:da",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "names": {
+        "reverse_dns": null,
+        "netbios": null,
+        "mdns": null,
+        "best_name": null
+      },
+      "device_name": "Bilinmiyor"
+    },
+    {
+      "ip": "10.102.143.144",
+      "mac": "d0:7e:35:35:0a:b1",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "names": {
+        "reverse_dns": null,
+        "netbios": null,
+        "mdns": null,
+        "best_name": null
+      },
+      "device_name": "Bilinmiyor"
+    },
+    {
+      "ip": "10.102.143.160",
+      "mac": "b6:9d:16:d5:36:3e",
+      "vendor": "Bilinmiyor",
+      "hostname": "-",
+      "names": {
+        "reverse_dns": null,
+        "netbios": null,
+        "mdns": null,
+        "best_name": null
+      },
+      "device_name": "Bilinmiyor"
+    },
+    {
+      "ip": "10.102.143.191",
+      "mac": "70:9c:d1:fc:fa:a8",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "names": {
+        "reverse_dns": null,
+        "netbios": null,
+        "mdns": null,
+        "best_name": null
+      },
+      "device_name": "Bilinmiyor"
+    }
+  ],
+  "scan_results": [
+    {
+      "ip": "10.102.143.1",
+      "status": "up",
+      "ports": [
+        {
+          "port": 80,
+          "protocol": "tcp",
+          "service": "http",
+          "product": "lighttpd",
+          "version": "",
+          "extra": ""
+        },
+        {
+          "port": 443,
+          "protocol": "tcp",
+          "service": "https",
+          "product": "lighttpd",
+          "version": "",
+          "extra": ""
+        },
+        {
+          "port": 8080,
+          "protocol": "tcp",
+          "service": "http-proxy",
+          "product": "none",
+          "version": "",
+          "extra": ""
+        }
+      ],
+      "mac": "00:01:21:76:3c:ad",
+      "vendor": "WatchGuard Technologies, Inc.",
+      "hostname": "-",
+      "device_type": "Web Sunucusu",
+      "type_confidence": "Orta",
+      "type_reason": "Acik port imzasi"
+    },
+    {
+      "ip": "10.102.143.133",
+      "ports": [],
+      "mac": "f0:9e:4a:6a:51:da",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "device_type": "Bilgisayar (Laptop/PC)",
+      "type_confidence": "Orta",
+      "type_reason": "MAC ureticisi"
+    },
+    {
+      "ip": "10.102.143.144",
+      "ports": [],
+      "mac": "d0:7e:35:35:0a:b1",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "device_type": "Bilgisayar (Laptop/PC)",
+      "type_confidence": "Orta",
+      "type_reason": "MAC ureticisi"
+    },
+    {
+      "ip": "10.102.143.160",
+      "ports": [],
+      "mac": "b6:9d:16:d5:36:3e",
+      "vendor": "Bilinmiyor",
+      "hostname": "-",
+      "device_type": "Bilinmeyen (port yok)",
+      "type_confidence": "Dusuk",
+      "type_reason": "Acik port ve tani-mlanabilir uretici yok"
+    },
+    {
+      "ip": "10.102.143.191",
+      "status": "up",
+      "ports": [
+        {
+          "port": 3306,
+          "protocol": "tcp",
+          "service": "mysql",
+          "product": "MySQL",
+          "version": "",
+          "extra": "unauthorized"
+        }
+      ],
+      "mac": "70:9c:d1:fc:fa:a8",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "device_type": "Bilgisayar (Laptop/PC)",
+      "type_confidence": "Orta",
+      "type_reason": "Uretici bilgisi + port ipuclari"
+    }
+  ],
+  "security_evaluation": [
+    {
+      "ip": "10.102.143.1",
+      "mac": "00:01:21:76:3c:ad",
+      "vendor": "WatchGuard Technologies, Inc.",
+      "hostname": "-",
+      "findings": [
+        {
+          "port": 80,
+          "service": "http",
+          "product": "lighttpd",
+          "version": "",
+          "severity": "BILGI",
+          "title": "Acik port: 80 (http)",
+          "description": "Tanimlanmamis acik port. Gerekli olup olmadigi kontrol edilmeli.",
+          "recommendation": "Bu servise ihtiyac yoksa kapatin."
+        },
+        {
+          "port": 443,
+          "service": "https",
+          "product": "lighttpd",
+          "version": "",
+          "severity": "BILGI",
+          "title": "Acik port: 443 (https)",
+          "description": "Tanimlanmamis acik port. Gerekli olup olmadigi kontrol edilmeli.",
+          "recommendation": "Bu servise ihtiyac yoksa kapatin."
+        },
+        {
+          "port": 8080,
+          "service": "http-proxy",
+          "product": "none",
+          "version": "",
+          "severity": "DUSUK",
+          "title": "HTTP - Alternatif web portu",
+          "description": "Genelde yonetim paneli/proxy. Kimlik dogrulamasi zayif olabilir.",
+          "recommendation": "HTTPS kullanin, panel erisimini kisitlayin, varsayilan sifreleri degistirin."
+        }
+      ],
+      "score": 95,
+      "risk_level": "DUSUK"
+    },
+    {
+      "ip": "10.102.143.133",
+      "mac": "f0:9e:4a:6a:51:da",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "findings": [],
+      "score": 100,
+      "risk_level": "DUSUK"
+    },
+    {
+      "ip": "10.102.143.144",
+      "mac": "d0:7e:35:35:0a:b1",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "findings": [],
+      "score": 100,
+      "risk_level": "DUSUK"
+    },
+    {
+      "ip": "10.102.143.160",
+      "mac": "b6:9d:16:d5:36:3e",
+      "vendor": "Bilinmiyor",
+      "hostname": "-",
+      "findings": [],
+      "score": 100,
+      "risk_level": "DUSUK"
+    },
+    {
+      "ip": "10.102.143.191",
+      "mac": "70:9c:d1:fc:fa:a8",
+      "vendor": "Intel Corporate",
+      "hostname": "-",
+      "findings": [
+        {
+          "port": 3306,
+          "service": "mysql",
+          "product": "MySQL",
+          "version": "",
+          "severity": "YUKSEK",
+          "title": "MySQL - Veritabani",
+          "description": "MySQL portu aga acik. Veritabanina yetkisiz erisim riski.",
+          "recommendation": "bind-address=127.0.0.1 ayarlayin, guclu root sifresi kullanin."
+        }
+      ],
+      "score": 75,
+      "risk_level": "ORTA"
+    }
+  ],
+  "summary": {
+    "total_devices": 5,
+    "total_findings": 4,
+    "severity_counts": {
+      "KRITIK": 0,
+      "YUKSEK": 1,
+      "ORTA": 0,
+      "DUSUK": 1,
+      "BILGI": 2
+    },
+    "average_score": 94.0
+  }
+}
